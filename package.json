@@ -9,7 +9,7 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
-    "angular": "1.4.7",
+    "angular": "1.7.9",
     "angular-sanitize": "^1.4.7",
     "aos": "^3.0.0-beta.6",
     "bootstrap": "^4.4.1",
