@@ -1,7 +1,10 @@
 import mapboxgl from 'mapbox-gl'
 import scrollama from 'scrollama'
 
-export default (config) => {
+import config from './config.js'
+import dataCoupures from './coupures-urbaines-dile-de-france0.json'
+
+export default () => {
 
   const layerTypes = {
     'fill': ['fill-opacity'],
@@ -141,6 +144,18 @@ export default (config) => {
 
   map.on("load", function() {
     // setup the instance, pass callback functions
+    map.addLayer({
+      id: 'coupures-urbaines',
+      source: {
+        type: 'geojson',
+        data: dataCoupures
+      },
+      type: 'circle',
+      paint: {
+        'circle-color': '#FFA500'
+      }
+    });
+
     scroller
       .setup({
         step: '.step',
