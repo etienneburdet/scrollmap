@@ -66,10 +66,6 @@ const storyConfig = {
       onChapterExit: [{
         layer: 'coupures-urbaines',
         opacity: 0
-      }],
-      onChapterExit: [{
-        layer: 'indego-stations',
-        opacity: 0
       }]
     },
     {
