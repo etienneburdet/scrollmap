@@ -17,7 +17,7 @@ module.exports = {
   devtool: 'inline-source-map',
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist/widgets'),
   },
   externals: {
     jQuery: 'jquery',

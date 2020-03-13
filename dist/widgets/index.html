@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ODS Widgets Minimal Boilerplate</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div class="container-fluid" ng-app="ods-widgets">
+    <div id="map">
+      <ods-dataset-context context="velo, coupures" velo-domain="data.opendatasoft.com" coupures-domain="data.opendatasoft.com" velo-dataset="amenagements-velo-en-ile-de-france@datailedefrance"
+        coupures-dataset="coupures-urbaines-dile-de-france0@datailedefrance">
+        <div id="idf" class="map-wrapper">
+          <ods-map class="map" location="10,48.831,2.349" scroll-wheel-zoom="0" display-control="0">
+            <ods-map-layer context="velo" color="#128317"></ods-map-layer>
+          </ods-map>
+        </div>
+        <div id="coupures" class="map-wrapper">
+          <ods-map class="map" location="10,48.831,2.349" scroll-wheel-zoom="0" display-control="0">
+            <ods-map-layer context="coupures" color="#ba681c"></ods-map-layer>
+          </ods-map>
+        </div>
+        <div id="fluvial" class="map-wrapper">
+          <ods-map class="map" location="12,48.831,2.349" scroll-wheel-zoom="0" display-control="0">
+            <ods-map-layer context="velo" color="#128317"></ods-map-layer>
+            <ods-map-layer context="coupures" color="#ba681c"></ods-map-layer>
+          </ods-map>
+        </div>
+        <div id="feroviaire" class="map-wrapper">
+          <ods-map class="map" location="15,48.936,2.440" scroll-wheel-zoom="0" display-control="0">
+            <ods-map-layer context="velo" color="#128317"></ods-map-layer>
+            <ods-map-layer context="coupures" color="#ba681c"></ods-map-layer>
+          </ods-map>
+        </div>
+      </ods-dataset-context>
+      <div id="story"></div>
+    </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-sanitize.min.js"></script>
+  <script type="text/javascript" src="https://opendatasoft.github.io/ods-widgets/dist/ods-widgets.js"></script>
+<script type="text/javascript" src="app.bundle.js"></script></body>
+
+</html>
