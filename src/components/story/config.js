@@ -13,12 +13,7 @@ export default {
       title: 'Piste cycblables en Île-de-France',
       image: '',
       description: 'Il y a plein de pistes cyclables en Île de France… enfin, surtout à Paris :(',
-      location: {
-        center: [2.349, 48.831],
-        zoom: 10.48,
-        pitch: 0.00,
-        bearing: 0.00
-      },
+      location: "10.48,2.349,48.831",
       onChapterEnter: [{
         layer: 'amenagements-velo',
         opacity: .9

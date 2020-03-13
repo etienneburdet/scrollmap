@@ -13,6 +13,7 @@ export default () => {
 
   const story = document.getElementById('story');
   const features = document.createElement('div');
+  const map = document.getElementById('map')
   features.classList.add(alignments[config.alignment]);
   features.setAttribute('id', 'features');
 
@@ -109,21 +110,26 @@ export default () => {
       progress: true
     })
     .onStepEnter(response => {
-      const chapter = config.chapters.find(chap => chap.id === response.element.id);
+      // const chapter = config.chapters.find(chap => chap.id === response.element.id);
+      const mapWrapper = map.querySelector(`#${response.element.id}`)
+      mapWrapper.classList.add('map-active')
       response.element.classList.add('active');
-      if (config.showMarkers) {
-        // marker.setLngLat(chapter.location.center);
-      }
-      if (chapter.onChapterEnter.length > 0) {
-        // chapter.onChapterEnter.forEach(setLayerOpacity);
-      }
+      // if (config.showMarkers) {
+      //   // marker.setLngLat(chapter.location.center);
+      // }
+      // if (chapter.onChapterEnter.length > 0) {
+      //   // chapter.onChapterEnter.forEach(setLayerOpacity);
+      // }
     })
     .onStepExit(response => {
-      const chapter = config.chapters.find(chap => chap.id === response.element.id);
+      // const chapter = config.chapters.find(chap => chap.id === response.element.id);
+      const mapWrapper = map.querySelector(`#${response.element.id}`)
+      mapWrapper.classList.remove('map-active')
       response.element.classList.remove('active');
-      if (chapter.onChapterExit.length > 0) {
-        // chapter.onChapterExit.forEach(setLayerOpacity);
-      }
+
+      // if (chapter.onChapterExit.length > 0) {
+      //   // chapter.onChapterExit.forEach(setLayerOpacity);
+      // }
     });
 
   // setup resize event
