@@ -8,8 +8,19 @@
 </head>
 
 <body>
-  <div id="map"></div>
-  <div id="story"></div>
+  <div class="container-fluid" ng-app="ods-widgets">
+    <div id="map">
+      <ods-dataset-context context="velo, coupures" velo-domain="data.opendatasoft.com" coupures-domain="data.opendatasoft.com" velo-dataset="amenagements-velo-en-ile-de-france@datailedefrance"
+        coupures-dataset="coupures-urbaines-dile-de-france0@datailedefrance" ng-init="mapcontext">
+        <ods-map scroll-wheel-zoom="0">
+          <ods-map-layer sync-to-object="mapcontext" context="velo" color="#128317"></ods-map-layer>
+          <ods-map-layer sync-to-object="mapcontext" context="coupures" color="#de7e1b"></ods-map-layer>
+        </ods-map>
+      </ods-dataset-context>
+    </div>
+    <div id="story"></div>
+  </div>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>

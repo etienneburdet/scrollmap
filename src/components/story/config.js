@@ -1,5 +1,5 @@
 export default {
-  style: 'mapbox://styles/mapbox/dark-v10',
+  domain: 'mapbox://styles/mapbox/dark-v10',
   accessToken: 'pk.eyJ1IjoiZXRpZW5uZWJ1cmRldCIsImEiOiJjajVrMThvYnEyY2xsMndyeXA1cXFtb3N3In0.BdoiQvisTCL49X935MRDXw',
   showMarkers: false,
   theme: 'light',
