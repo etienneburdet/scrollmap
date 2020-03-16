@@ -1,16 +1,9 @@
-import mapboxgl from 'mapbox-gl'
 import scrollama from 'scrollama'
 
-export default (config) => {
+import config from './config.js'
+import dataCoupures from './coupures-urbaines-dile-de-france0.json'
 
-  const layerTypes = {
-    'fill': ['fill-opacity'],
-    'line': ['line-opacity'],
-    'circle': ['circle-opacity', 'circle-stroke-opacity'],
-    'symbol': ['icon-opacity', 'text-opacity'],
-    'raster': ['raster-opacity'],
-    'fill-extrusion': ['fill-extrusion-opacity']
-  }
+export default () => {
 
   const alignments = {
     'left': 'lefty',
@@ -18,20 +11,9 @@ export default (config) => {
     'right': 'righty'
   }
 
-  function getLayerPaintType(layer) {
-    const layerType = map.getLayer(layer).type;
-    return layerTypes[layerType];
-  }
-
-  function setLayerOpacity(layer) {
-    const paintProps = getLayerPaintType(layer.layer);
-    paintProps.forEach(function(prop) {
-      map.setPaintProperty(layer.layer, prop, layer.opacity);
-    });
-  }
-
   const story = document.getElementById('story');
   const features = document.createElement('div');
+  const map = document.getElementById('map')
   features.classList.add(alignments[config.alignment]);
   features.setAttribute('id', 'features');
 
@@ -110,8 +92,6 @@ export default (config) => {
     story.appendChild(footer);
   }
 
-  mapboxgl.accessToken = config.accessToken;
-
   const transformRequest = (url) => {
     const hasQuery = url.indexOf("?") !== -1;
     const suffix = hasQuery ? "&pluginName=journalismScrollytelling" : "?pluginName=journalismScrollytelling";
@@ -120,52 +100,37 @@ export default (config) => {
     }
   }
 
-  const map = new mapboxgl.Map({
-    container: 'map',
-    style: config.style,
-    center: config.chapters[0].location.center,
-    zoom: config.chapters[0].location.zoom,
-    bearing: config.chapters[0].location.bearing,
-    pitch: config.chapters[0].location.pitch,
-    scrollZoom: false,
-    transformRequest: transformRequest
-  });
-
-  const marker = new mapboxgl.Marker();
-  if (config.showMarkers) {
-    marker.setLngLat(config.chapters[0].location.center).addTo(map);
-  }
-
   // instantiate the scrollama
   const scroller = scrollama();
 
-  map.on("load", function() {
-    // setup the instance, pass callback functions
-    scroller
-      .setup({
-        step: '.step',
-        offset: 0.5,
-        progress: true
-      })
-      .onStepEnter(response => {
-        const chapter = config.chapters.find(chap => chap.id === response.element.id);
-        response.element.classList.add('active');
-        map.flyTo(chapter.location);
-        if (config.showMarkers) {
-          marker.setLngLat(chapter.location.center);
-        }
-        if (chapter.onChapterEnter.length > 0) {
-          chapter.onChapterEnter.forEach(setLayerOpacity);
-        }
-      })
-      .onStepExit(response => {
-        const chapter = config.chapters.find(chap => chap.id === response.element.id);
-        response.element.classList.remove('active');
-        if (chapter.onChapterExit.length > 0) {
-          chapter.onChapterExit.forEach(setLayerOpacity);
-        }
-      });
-  });
+  scroller
+    .setup({
+      step: '.step',
+      offset: 0.5,
+      progress: true
+    })
+    .onStepEnter(response => {
+      // const chapter = config.chapters.find(chap => chap.id === response.element.id);
+      const mapWrapper = map.querySelector(`#${response.element.id}`)
+      mapWrapper.classList.add('map-active')
+      response.element.classList.add('active');
+      // if (config.showMarkers) {
+      //   // marker.setLngLat(chapter.location.center);
+      // }
+      // if (chapter.onChapterEnter.length > 0) {
+      //   // chapter.onChapterEnter.forEach(setLayerOpacity);
+      // }
+    })
+    .onStepExit(response => {
+      // const chapter = config.chapters.find(chap => chap.id === response.element.id);
+      const mapWrapper = map.querySelector(`#${response.element.id}`)
+      mapWrapper.classList.remove('map-active')
+      response.element.classList.remove('active');
+
+      // if (chapter.onChapterExit.length > 0) {
+      //   // chapter.onChapterExit.forEach(setLayerOpacity);
+      // }
+    });
 
   // setup resize event
   window.addEventListener('resize', scroller.resize);

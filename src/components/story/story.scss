@@ -8,12 +8,22 @@ a, a:hover, a:visited {
   color: #0071bc;
 }
 
-#map {
+.map {
   top: 0;
   height: 100vh;
   width: 100vw;
   position: fixed;
-  z-index: -5;
+}
+
+.map-wrapper {
+  padding-left: 100vw;
+  transition: padding-left 0s;
+  transition-delay: 0.5s;
+}
+
+.map-active {
+  padding-left: 0;
+  transition: padding-left 0.5s ease;
 }
 
 #header {

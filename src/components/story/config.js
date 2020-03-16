@@ -1,5 +1,5 @@
-const storyConfig = {
-  style: 'mapbox://styles/etienneburdet/ck7oikz5z0q5v1ioasmqrnuvc',
+export default {
+  domain: 'mapbox://styles/mapbox/dark-v10',
   accessToken: 'pk.eyJ1IjoiZXRpZW5uZWJ1cmRldCIsImEiOiJjajVrMThvYnEyY2xsMndyeXA1cXFtb3N3In0.BdoiQvisTCL49X935MRDXw',
   showMarkers: false,
   theme: 'light',
@@ -13,12 +13,7 @@ const storyConfig = {
       title: 'Piste cycblables en Île-de-France',
       image: '',
       description: 'Il y a plein de pistes cyclables en Île de France… enfin, surtout à Paris :(',
-      location: {
-        center: [2.349, 48.831],
-        zoom: 10.48,
-        pitch: 0.00,
-        bearing: 0.00
-      },
+      location: "10.48,2.349,48.831",
       onChapterEnter: [{
         layer: 'amenagements-velo',
         opacity: .9
@@ -103,8 +98,4 @@ const storyConfig = {
       ]
     }
   ]
-}
-
-export {
-  storyConfig
 }
