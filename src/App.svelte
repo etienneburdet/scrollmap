@@ -30,19 +30,19 @@
         </div>
       </div>
       <div id="chapters" class="righty chapters" slot="chapters">
-        <OdsScrollChapter id="idf" activeClass="active-feature">
+        <OdsScrollChapter id="idf" activeClass="active-chapter">
           <h3>Pistes cyclables en idf</h3>
           <p>Mais il y a aussi beaucoup de coupures, qui empêchent clairement de faire du vélo</p>
         </OdsScrollChapter>
-        <OdsScrollChapter id="coupures">
+        <OdsScrollChapter activeClass="active-chapter" id="coupures">
           <h3>Coupures</h3>
           <p>Mais il y a aussi beaucoup de coupures, qui empêchent clairement de faire du vélo</p>
         </OdsScrollChapter>
-        <OdsScrollChapter id="fluvial">
+        <OdsScrollChapter activeClass="active-chapter" id="fluvial">
           <h3>Coupures Fluvial</h3>
           <p>Les berges sont souvent idéales pour l\'aménagement de pistes cyclables, mais les ports restent un obstacle majeur</p>
         </OdsScrollChapter>
-        <OdsScrollChapter id="feroviaire">
+        <OdsScrollChapter activeClass="active-chapter" id="feroviaire">
           <h3>Coupure Ferroviaires</h3>
           <p>Les installations ferroviaires (gares, ateliers, voies de remisage etc.), créent aussi de grand "déserts", difficiles à contourner en vélo</p>
         </OdsScrollChapter>
