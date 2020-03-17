@@ -10,7 +10,6 @@
     // featureWrapper.classList.add('active-feature')
     // response.element.classList.add('active');
     activeChapterId.set(response.element.id)
-    console.log('the active chapter was', $activeChapterId);
   }
 
   const setInactive = (response) => {
