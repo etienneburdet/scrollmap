@@ -1,7 +1,6 @@
 <script>
   import OdsScrollStory from './components/widget-prototype/OdsScrollStory.svelte'
   import OdsScrollChapter from './components/widget-prototype/OdsScrollChapter.svelte'
-  import { activeChapterId } from './components/widget-prototype/store.js'
 </script>
 
   <ods-dataset-context context="velo, coupures" velo-domain="data.opendatasoft.com" coupures-domain="data.opendatasoft.com" velo-dataset="amenagements-velo-en-ile-de-france@datailedefrance" coupures-dataset="coupures-urbaines-dile-de-france0@datailedefrance">

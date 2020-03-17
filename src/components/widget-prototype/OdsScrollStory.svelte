@@ -10,13 +10,13 @@
     // featureWrapper.classList.add('active-feature')
     // response.element.classList.add('active');
     activeChapterId.set(response.element.id)
-    console.log('from scrollstory', $activeChapterId);
+    console.log('the active chapter was', $activeChapterId);
   }
 
   const setInactive = (response) => {
     // const featureWrapper = features.querySelector(`#${response.element.id}`)
     // featureWrapper.classList.remove('active-feature')
-    activeChapterId = ''
+    console.log('the active chapter was', $activeChapterId);
   }
 
   const setScroller = () => {
