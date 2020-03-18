@@ -6,7 +6,7 @@
   <ods-dataset-context context="velo, coupures" velo-domain="data.opendatasoft.com" coupures-domain="data.opendatasoft.com" velo-dataset="amenagements-velo-en-ile-de-france@datailedefrance" coupures-dataset="coupures-urbaines-dile-de-france0@datailedefrance">
     <OdsScrollStory>
       <div id="features" slot="features">
-        <div id="idf" class="map-wrapper">
+        <div id="cycle-map" class="map-wrapper">
           <ods-map class="map" location="10,48.831,2.349" scroll-wheel-zoom="0" display-control="0">
             <ods-map-layer context="velo" color="#128317"></ods-map-layer>
           </ods-map>
@@ -30,7 +30,9 @@
         </div>
       </div>
       <div id="chapters" class="righty chapters" slot="chapters">
-        <OdsScrollChapter id="idf" activeClass="active-chapter">
+        <OdsScrollChapter id="idf"
+          activeClass="active-chapter"
+          featureId="cycle-map">
           <h3>Pistes cyclables en idf</h3>
           <p>Mais il y a aussi beaucoup de coupures, qui empêchent clairement de faire du vélo</p>
         </OdsScrollChapter>

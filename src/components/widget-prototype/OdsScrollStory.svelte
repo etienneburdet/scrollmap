@@ -1,21 +1,19 @@
 <script>
   import scrollama from 'scrollama'
   import { onMount } from 'svelte'
-  import { activeChapterId } from './store.js'
+  import { activeChapterId, activeFeatureId } from './store.js'
 
   const scroller = scrollama();
 
   const setActive = (response) => {
-    // const featureWrapper = features.querySelector(`#${response.element.id}`)
-    // featureWrapper.classList.add('active-feature')
-    // response.element.classList.add('active');
     activeChapterId.set(response.element.id)
+    console.log('the new active feature is', $activeFeatureId)
+    let activeFeature = document.getElementById($activeFeatureId)
+    activeFeature.classList.add('active-feature')
   }
 
   const setInactive = (response) => {
-    // const featureWrapper = features.querySelector(`#${response.element.id}`)
-    // featureWrapper.classList.remove('active-feature')
-    console.log('the active chapter was', $activeChapterId);
+    activeFeature.classList.remove('active-feature')
   }
 
   const setScroller = () => {
@@ -26,7 +24,7 @@
       progress: true
     })
     .onStepEnter(setActive)
-    // .onStepExit(setInactive)
+    .onStepExit(setInactive)
 
     window.addEventListener('resize', scroller.resize);
   }
