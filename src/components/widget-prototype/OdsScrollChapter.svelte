@@ -5,8 +5,9 @@
   export let activeClass
 </script>
 
-<div id="{id}" class={id === $activeChapterId ? 'step active-chapter' : 'step'}>
+<div id="{id}" class="step {$activeChapterId === id ? activeClass : ''}">
   <div class="light">
+  My active class is {activeClass}
     <slot/>
   </div>
 </div>
