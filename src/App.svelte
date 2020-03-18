@@ -32,7 +32,8 @@
       <div id="chapters" class="righty chapters" slot="chapters">
         <OdsScrollChapter id="idf"
           activeClass="active-chapter"
-          featureId="cycle-map">
+          featureId="cycle-map"
+          featureActiveClass="slide-in">
           <h3>Pistes cyclables en idf</h3>
           <p>Mais il y a aussi beaucoup de coupures, qui empêchent clairement de faire du vélo</p>
         </OdsScrollChapter>
